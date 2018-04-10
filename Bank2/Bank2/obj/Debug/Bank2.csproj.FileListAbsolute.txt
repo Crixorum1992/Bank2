@@ -1,0 +1,6 @@
+C:\Users\nicjreid\source\repos\Bank2\Bank2\bin\Debug\Bank2.dll
+C:\Users\nicjreid\source\repos\Bank2\Bank2\bin\Debug\Bank2.pdb
+C:\Users\nicjreid\source\repos\Bank2\Bank2\obj\Debug\Bank2.csprojResolveAssemblyReference.cache
+C:\Users\nicjreid\source\repos\Bank2\Bank2\obj\Debug\Bank2.csproj.CoreCompileInputs.cache
+C:\Users\nicjreid\source\repos\Bank2\Bank2\obj\Debug\Bank2.dll
+C:\Users\nicjreid\source\repos\Bank2\Bank2\obj\Debug\Bank2.pdb
