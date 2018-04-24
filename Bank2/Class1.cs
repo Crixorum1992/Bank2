@@ -28,6 +28,10 @@ namespace BankAccountNS
         {
             m_customerName = customerName;
             m_balance = balance;
+			if(m_balance < 0)
+			{
+				FreezeAccount();
+			}
         }
 
         public string CustomerName
@@ -59,6 +63,11 @@ namespace BankAccountNS
 
             m_balance -= amount;
 			m_balance -= 1.45;
+
+			if (m_balance < 0)
+			{
+				FreezeAccount();
+			}
         }
 
         public void Credit(double amount)
@@ -76,12 +85,12 @@ namespace BankAccountNS
             m_balance += amount;
         }
 
-        public void FreezeAccount()
+        private void FreezeAccount()
         {
             m_frozen = true;
         }
 
-        public void UnfreezeAccount()
+        private void UnfreezeAccount()
         {
             m_frozen = false;
         }

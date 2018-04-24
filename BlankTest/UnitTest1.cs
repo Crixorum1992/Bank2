@@ -38,8 +38,19 @@ namespace BlankTest
             // act  
             account.Debit(debitAmount);
 
-            // assert is handled by ExpectedException  
-        }
+			// assert is handled by ExpectedException
+			try
+			{
+				account.Debit(debitAmount);
+			}
+			catch (ArgumentOutOfRangeException e)
+			{
+				// assert  
+				StringAssert.Contains(e.Message, BankAccount.DebitAmountLessThanZeroMessage);
+				return;
+			}
+			Assert.Fail("No exception was thrown.");
+		}
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -107,15 +118,28 @@ namespace BlankTest
 		public void Credit_WhenAccountisFrozen_ShouldThrowException()
 		{
 			// arrange  
-			double beginningBalance = -100;
+			double beginningBalance = -11.99;
 			double creditAmount = 100.00;
 			BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
 
 			// act
-			account.FreezeAccount();
 			account.Credit(creditAmount);
 
 			// assert is handled by ExpectedException
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(Exception))]
+		public void Debit_WhenAccountIsNegativeFreezeAccount_ShouldThrowException()
+		{
+			// arrange  
+			double beginningBalance = 11.99;
+			double debitAmount = 11.00;
+			BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
+
+			// act  
+			account.Debit(debitAmount);
+			account.Debit(debitAmount);
 		}
 
 	}
