@@ -58,7 +58,7 @@ namespace BankAccountNS
             }
 
             m_balance -= amount;
-			//m_balance -= 1.45;
+			m_balance -= 1.45;
         }
 
         public void Credit(double amount)
@@ -76,12 +76,12 @@ namespace BankAccountNS
             m_balance += amount;
         }
 
-        private void FreezeAccount()
+        public void FreezeAccount()
         {
             m_frozen = true;
         }
 
-        private void UnfreezeAccount()
+        public void UnfreezeAccount()
         {
             m_frozen = false;
         }
